@@ -1,8 +1,21 @@
 version: '3.3'
 services:
-  python:
+  calculadora:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: docker/Dockerfile
+    image: calculadora
+    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
     volumes:
       - ./source:/source
+
+  # postgres:
+  #   image: postgres:12-alpine
+  #   volumes:
+  #     - ubirani_pgdata_qua068:/var/lib/postgresql/data
+  #   environment:
+  #     POSTGRESQL_USER: postgres
+  #     POSTGRESQL_PASSWORD: 1@345678
+  #     POSTGRESQL_PORT: 5432
+  #     POSTGRES_DB: calculadora
+      
