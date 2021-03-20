@@ -4,7 +4,8 @@ ENV PYTHONUNBUFFERED 1
 
 RUN pip install --upgrade pip && \
     pip wheel -w /requirements/whl \
-    django
+    django 
+    # psycopg2-binary
 
 # 2º Stage
 FROM python:3.6-alpine3.6
@@ -16,3 +17,5 @@ RUN pip install /requirements/whl/* && rm -rf /requirements
 
 COPY --chown=82:82 ./source /source
 WORKDIR /source
+EXPOSE 8000
+CMD ["entrypoint.sh"]
