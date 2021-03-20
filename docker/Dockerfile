@@ -4,7 +4,10 @@ ENV PYTHONUNBUFFERED 1
 
 RUN pip install --upgrade pip && \
     pip wheel -w /requirements/whl \
-    django 
+    django \
+    djangorestframework \
+    markdown \
+    django-filter
     # psycopg2-binary
 
 # 2º Stage
