@@ -1,9 +1,15 @@
-from django.shortcuts import render
-from django.contrib.auth.models import User, Group
+from django.contrib.auth.models import User
 from rest_framework import viewsets
 from rest_framework import permissions
-from calcular.models import Calculadora
-from calcular.serializers import UserSerializer, CalculadoraSerializer
+from calcular.serializers import UserSerializer
+from calcular.serializers import SomaSerializer
+from calcular.serializers import SubtracaoSerializer
+from calcular.serializers import MultiplicacaoSerializer
+from calcular.serializers import DivisaoSerializer
+from calcular.models import Soma
+from calcular.models import Subtracao 
+from calcular.models import Multiplicacao
+from calcular.models import Divisao
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -12,10 +18,19 @@ class UserViewSet(viewsets.ModelViewSet):
     """
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
-class CalculadoraViewSet(viewsets.ModelViewSet):
+class SomaViewSet(viewsets.ModelViewSet):
+    queryset = Soma.objects.all()
+    serializer_class = SomaSerializer
 
-    queryset = Calculadora.objects.all()
-    serializer_class = CalculadoraSerializer
-    permission_classes = [permissions.IsAuthenticated]
+class SubtracaoViewSet(viewsets.ModelViewSet):
+    queryset = Subtracao.objects.all()
+    serializer_class = SubtracaoSerializer
+
+class MultiplicacaoViewSet(viewsets.ModelViewSet):
+    queryset = Multiplicacao.objects.all()
+    serializer_class = MultiplicacaoSerializer
+
+class DivisaoViewSet(viewsets.ModelViewSet):
+    queryset = Divisao.objects.all()
+    serializer_class = DivisaoSerializer

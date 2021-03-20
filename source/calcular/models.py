@@ -32,3 +32,60 @@ class Calculadora(models.Model):
 
     def __str__(self):
         return f'{self.operacao}'
+
+class Soma(models.Model):
+   
+    id = models.AutoField(primary_key=True)
+    number_1 = models.IntegerField()
+    number_2 = models.IntegerField()
+    
+    def resultado(self):
+        return self.number_1 + self.number_2
+    
+    class Meta:
+        verbose_name = "soma"
+
+    def __str__(self):
+        return f'soma'
+   
+class Subtracao(models.Model):
+    id = models.AutoField(primary_key=True)
+    number_1 = models.IntegerField()
+    number_2 = models.IntegerField()
+    
+    def resultado(self):
+        return self.number_1 - self.number_2
+    
+    class Meta:
+        verbose_name = "subtração"
+
+    def __str__(self):
+        return f'subtração'
+
+class Multiplicacao(models.Model):
+    id = models.AutoField(primary_key=True)
+    number_1 = models.IntegerField()
+    number_2 = models.IntegerField()
+    
+    def resultado(self):
+        return self.number_1 * self.number_2
+    
+    class Meta:
+        verbose_name = "multiplicação"
+
+    def __str__(self):
+        return f'multiplicação'
+
+class Divisao(models.Model):
+    id = models.AutoField(primary_key=True)
+    number_1 = models.IntegerField()
+    number_2 = models.IntegerField()
+    
+    def resultado(self):
+        return self.number_1 / self.number_2
+    
+    class Meta:
+        verbose_name = "divisão"
+
+    def __str__(self):
+        return f'divisão'

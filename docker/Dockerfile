@@ -7,7 +7,8 @@ RUN pip install --upgrade pip && \
     django \
     djangorestframework \
     markdown \
-    django-filter
+    django-filter \
+    django-rest-swagger
     # psycopg2-binary
 
 # 2º Stage
@@ -21,4 +22,5 @@ RUN pip install /requirements/whl/* && rm -rf /requirements
 COPY --chown=82:82 ./source /source
 WORKDIR /source
 EXPOSE 8000
+
 CMD ["entrypoint.sh"]
