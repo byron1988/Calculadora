@@ -17,24 +17,15 @@ class Calculadora(models.Model):
     number_2 = models.IntegerField()
     operacao = models.CharField(choices=OPERACOES, max_length=13)
 
-
-    def somar(self):
+    def resultado(self):
         if self.operacao == 'soma':
             return self.number_1 + self.number_2
-
-    def subtrair(self):
-        if self.operacao == 'subtracao':
+        elif self.operacao == 'subtracao':
             return self.number_1 - self.number_2
-
-    def multiplicar(self):
-        if self.operacao == 'multiplicacao':
+        elif self.operacao == 'multiplicacao':
             return self.number_1 * self.number_2
-
-    def dividir(self):
-        if self.operacao == 'divisao':
+        elif self.operacao == 'divisao':
             return self.number_1 / self.number_2
- 
-
 
     class Meta:
         verbose_name = "calculo"
